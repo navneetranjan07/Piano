@@ -1,75 +1,106 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
-    background: #000;
-    color: #222;
+    background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
+    color: #0ff;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main{
-    min-width: 70%;
+    width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    /* min-height: 100vh; */
+    /* background: red; */
 }
+
 h1 {
     font-size: 3rem;
-    margin-top: 30px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* margin-top: 10px; */
+    /* top: 0px; */
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    /* margin-bottom: 15%; */
 }
 
 .piano {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 50px auto;
     padding: 20px;
-    max-width: 60%;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    width: 70%;
+    gap: 2%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 0 30px #0ff;
 }
 
+
 .key {
-    position: relative;
-    width: 70px;
+    /* position: relative; */
+    width: 80px;
     height: 220px;
-    margin: 4px;
-    font-size: 18px;
-    font-weight: 700;
-    background: linear-gradient(to bottom, #fff, #e6e6e6);
-    border: 1px solid #888;
-    border-radius: 6px;
+    margin: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #111111;
+    color: #0ff;
+    border: 2px solid #0ff;
+    border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.3s;
+    box-shadow: 0 0 8px #0ff, 0 0 16px #0ff inset;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    text-shadow: 0 0 6px #0ff;
 }
 
+/* Hover glow */
 .key:hover {
-    background-color: #f0f0f0;
+    background: #0ff;
+    color: #111;
+    box-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+.disable-hover:hover{
+    background: #111111;
+    color: inherit;
+    box-shadow: 0 0 8px #0ff, 0 0 16px #0ff inset;
+    transform: scale(1.0);
 }
 
 /* Key press animation */
 .key:active,
 .key.pressed {
-    background-color: #d1eaff;
-    transform: scale(0.97);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+    background: #00faff;
+    color: #000;
+    box-shadow: 0 0 20px #00faff, 0 0 40px #00faff inset;
+    transform: scale(0.95);
 }
 
-/* Optional: Make it responsive */
-@media (min-width: 768px) {
+.about{
+    margin-bottom: 10px;
+}
+
+.about span{
+    color: yellow;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
     .key {
-        width: 50px;
+        width: 60px;
         height: 160px;
         font-size: 16px;
     }
@@ -78,12 +109,39 @@ h1 {
         font-size: 2rem;
     }
 }
+@media (min-width: 768px) {
+    /* .key {
+        width: 50px;
+        height: 160px;
+        font-size: 16px;
+    } */
+
+    h1 {
+        font-size: 2rem;
+    }
+}
 
 @media (max-width: 1080px){
-    h1{
-        font-size: 24px;
+    body{
+        background: red;
+        max-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
     }
-    .key{
-        max-height: 100px;
+    .main{
+        /* display: flex; */
+        /* flex-direction: row-reverse; */
+
+        width: 100%;
+    }
+    h1{
+        /* rotate: 90deg; */
+    }
+    .piano{
+        width: 100%;
+        rotate: 90deg;
+        flex-wrap: nowrap;
     }
 }
